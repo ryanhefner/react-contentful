@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <ContentfulProvider client={contentfulClient}>
-        <Router>
+        <Router basename={process.env.NODE_ENV === 'production' ? '/react-contentful' : '/'}>
           <div className="App">
             <Header />
             <div className="App-pageWrapper">

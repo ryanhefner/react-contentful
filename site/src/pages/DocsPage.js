@@ -6,7 +6,7 @@ const DocsPage = (props) => (
   <div className="Docs">
     <DocsNav />
     <div className="Docs-page">
-      <Page {...props} />
+      <Page {...props} directory="docs/" />
     </div>
   </div>
 );

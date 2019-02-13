@@ -7,9 +7,11 @@ const Page = (props) => (
   <Query
     contentType="Page"
     parser={pageParser}
-    query={{'fields.slug[in]': props.match.url}}
+    query={{'fields.slug[in]': `/${props.directory || ''}${props.match.slug || ''}`}}
    >
     {({data, error, loading}) => {
+      console.debug(props);
+
       if ((!data && !error) || loading) {
         return null;
       }
