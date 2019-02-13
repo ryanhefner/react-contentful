@@ -10,8 +10,6 @@ const Page = (props) => (
     query={{'fields.slug[in]': `/${props.directory || ''}${props.match.slug || ''}`}}
    >
     {({data, error, loading}) => {
-      console.debug(props);
-
       if ((!data && !error) || loading) {
         return null;
       }
