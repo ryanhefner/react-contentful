@@ -1,0 +1,7 @@
+coverage
+docs
+site
+tools
+src/.babelrc
+**/*.test.js
+rollup.config.js
