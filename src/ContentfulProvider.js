@@ -34,7 +34,7 @@ class ContentfulProvider extends Component {
 ContentfulProvider.propTypes = {
   children: PropTypes.any,
   client: PropTypes.object,
-  components: PropTypes.object,
+  context: PropTypes.object,
   locale: PropTypes.string,
 };
 
