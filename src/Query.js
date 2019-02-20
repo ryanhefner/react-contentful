@@ -76,7 +76,7 @@ class Query extends Component {
       try {
         const data = await id
           ? client.getEntry(id, {
-              local: requestLocale,
+              locale: requestLocale,
               include,
               ...query
             })
