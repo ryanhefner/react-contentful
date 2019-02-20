@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import ContentfulClient from './ContentfulClient';
 import ContentfulProvider from './ContentfulProvider';
 import Query from './Query';
+import 'babel-polyfill';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -93,7 +94,7 @@ describe('<Query />', () => {
     component.unmount();
   });
 
-  test('confirm getEntry is called when supplied an id', () => {
+  test('confirm children function is called', () => {
     component = mount((
       <ContentfulProvider client={contentfulClient}>
         <Query id="1">
@@ -106,4 +107,74 @@ describe('<Query />', () => {
     expect(mockQueryRender).toHaveBeenCalled();
     component.unmount();
   });
+
+  // test('confirm getEntry is called when supplied an id', () => {
+
+  // });
+
+  // test('confirm getEntries is called when supplied a contentType and params', () => {
+
+  // });
+
+  test('onRequest called when valid props supplied', () => {
+    const onRequest = jest.fn();
+    error = jest.spyOn(global.console, 'error');
+    component = mount((
+      <ContentfulProvider client={contentfulClient}>
+        <Query
+          id="1"
+          onRequest={onRequest}
+        />
+      </ContentfulProvider>
+    ), {
+      attachTo: document.getElementById('root'),
+    });
+    expect(error).not.toHaveBeenCalled();
+    expect(onRequest).toHaveBeenCalled();
+    component.unmount();
+  });
+
+  test('onLoad called when valid props supplied', (done) => {
+    const onLoad = jest.fn();
+    component = mount((
+      <ContentfulProvider client={contentfulClient}>
+        <Query
+          id="1"
+          onLoad={onLoad}
+        />
+      </ContentfulProvider>
+    ), {
+      attachTo: document.getElementById('root'),
+    });
+
+    setTimeout(() => {
+      expect(error).not.toHaveBeenCalled();
+      expect(onLoad).toHaveBeenCalled();
+      component.unmount();
+
+      done();
+    });
+  });
+
+  // test('onError called when request error', (done) => {
+  //   const onError = jest.fn();
+  //   component = mount((
+  //     <ContentfulProvider client={contentfulClient}>
+  //       <Query
+  //         id="2"
+  //         onError={onError}
+  //       />
+  //     </ContentfulProvider>
+  //   ), {
+  //     attachTo: document.getElementById('root'),
+  //   });
+
+  //   setTimeout(() => {
+  //     expect(error).not.toHaveBeenCalled();
+  //     expect(onError).toHaveBeenCalled();
+  //     component.unmount();
+
+  //     done();
+  //   });
+  // });
 });

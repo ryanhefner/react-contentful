@@ -33,6 +33,9 @@ class Query extends Component {
       locale,
       parser,
       query,
+      onRequest,
+      onLoad,
+      onError,
     } = this.props;
 
     // Check for contentful context
@@ -65,46 +68,40 @@ class Query extends Component {
 
     this.setState({
       loading: true,
-    }, () => {
-      if (id) {
-        client.getEntry(id, {
-          locale: locale || contextLocale,
-          include,
-          ...query,
-        })
-        .then(data => {
-          this.setState({
-            data: parser(data),
-            loading: false,
-          });
-        })
-        .catch(error => {
-          this.setState({
-            error,
-            loading: false,
-          });
-        });
-        return;
-      }
+    }, async () => {
+      onRequest(this.state);
 
-      client.getEntries({
-        'content_type': contentType,
-        locale: locale || contextLocale,
-        include,
-        ...query,
-      })
-      .then(data => {
+      const requestLocale = locale || contextLocale;
+
+      try {
+        const data = await id
+          ? client.getEntry(id, {
+              local: requestLocale,
+              include,
+              ...query
+            })
+          : client.getEnties({
+              'content_type': contentType,
+              locale: requestLocale,
+              include,
+              ...query
+            });
+
         this.setState({
           data: parser(data),
           loading: false,
+        }, () => {
+          onLoad(this.state);
         });
-      })
-      .catch(error => {
+      }
+      catch (error) {
         this.setState({
           error,
           loading: false,
+        }, () => {
+          onError(this.state);
         });
-      });
+      }
     });
   }
 
@@ -124,12 +121,18 @@ Query.propTypes = {
   include: PropTypes.number,
   query: PropTypes.object,
   parser: PropTypes.func,
+  onRequest: PropTypes.func,
+  onLoad: PropTypes.func,
+  onError: PropTypes.func,
 };
 
 Query.defaultProps = {
   include: 10,
   query: {},
   parser: (data) => data,
+  onRequest: () => {},
+  onLoad: () => {},
+  onError: () => {},
 };
 
 export default withContentful(Query);
