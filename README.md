@@ -36,7 +36,7 @@ in Contentful that are available through their existing Javascript SDK.
 ```js
 import React from 'react';
 import { ContentfulClient, ContentfulProvider } from 'react-contentful';
-import Page from './Page';  // @see Page example defined in `Query` example below
+import Page from './Page';  // @see Page component defined in `Query` example below
 
 const contentfulClient = new ContentfulClient({
   accessToken: '[Your Contentful Content Delivery API - access token]',
