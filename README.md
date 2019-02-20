@@ -6,8 +6,8 @@
 [![CircleCI](https://circleci.com/gh/ryanhefner/react-contentful.svg?style=shield)](https://circleci.com/gh/ryanhefner/react-contentful)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ryanhefner/react-contentful.svg)](https://greenkeeper.io/)
 
-A React component library that makes it super simple to compose the Contentful
-client and data queries into your React applications.
+A React component library that makes it super simple to compose Contentful
+content into your sites and applications.
 
 ## Install
 
@@ -25,7 +25,79 @@ yarn add react-contentful
 
 ## How to use
 
-_Coming soon_
+The `ContentfulProvider` provides the global context to your site or applications
+connection to Contentful. By using either the `Query` component, or writing
+your own Contentful client consumer component that provides access to the
+`ContentfulClient` directly by using `withContentful`, all queries can be performed
+in Contentful that are available through their existing Javascript SDK.
+
+### `ContentfulProvider`
+
+```js
+import React from 'react';
+import { ContentfulClient, ContentfulProvider } from 'react-contentful';
+import Page from './Page';  // @see Page example defined in `Query` example below
+
+const contentfulClient = new ContentfulClient({
+  accessToken: '[Your Contentful Content Delivery API - access token]',
+  space: '[Your Contentful Space ID]',
+});
+
+const App = () => (
+  <ContentfulProvider client={contentfulClient}>
+    <Router>
+      <Switch>
+        <Route path="/:slug*" component={Page} />
+      </Switch>
+    </Router>
+  </ContentfulProvider>
+);
+
+export default App;
+```
+
+### `Query`
+
+In this example, the `Query` component that creates a `query` parameter that
+filters `Page` content types from Contentful based on the `slug` field set on
+published `Page` content models.
+
+```js
+import React from 'react';
+import { Query } from 'react-contentful';
+
+const Page = (props) => (
+  <Query
+    contentType="Page"
+    query={{'fields.slug[in]': `/${props.match.slug || ''}`}}
+   >
+    {({data, error, loading}) => {
+      if ((!data && !error) || loading) {
+        return null;
+      }
+
+      if (error) {
+        console.error(error);
+        return null;
+      }
+
+      if (!data) {
+        return <p>Page does not exist.</p>;
+      }
+
+      // See the Contentful query response
+      console.debug(data);
+
+      // Process and pass in the loaded `data` necessary for your page or child components.
+      return (
+        ...
+      );
+    }}
+  </Query>
+);
+
+export default Page;
+```
 
 ### Examples
 
