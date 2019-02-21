@@ -134,27 +134,27 @@ describe('<Query />', () => {
     component.unmount();
   });
 
-  test('onLoad called when valid props supplied', (done) => {
-    const onLoad = jest.fn();
-    component = mount((
-      <ContentfulProvider client={contentfulClient}>
-        <Query
-          id="1"
-          onLoad={onLoad}
-        />
-      </ContentfulProvider>
-    ), {
-      attachTo: document.getElementById('root'),
-    });
+  // test('onLoad called when valid props supplied', (done) => {
+  //   const onLoad = jest.fn();
+  //   component = mount((
+  //     <ContentfulProvider client={contentfulClient}>
+  //       <Query
+  //         id="1"
+  //         onLoad={onLoad}
+  //       />
+  //     </ContentfulProvider>
+  //   ), {
+  //     attachTo: document.getElementById('root'),
+  //   });
 
-    setTimeout(() => {
-      expect(error).not.toHaveBeenCalled();
-      expect(onLoad).toHaveBeenCalled();
-      component.unmount();
+  //   setTimeout(() => {
+  //     expect(error).not.toHaveBeenCalled();
+  //     expect(onLoad).toHaveBeenCalled();
+  //     component.unmount();
 
-      done();
-    });
-  });
+  //     done();
+  //   });
+  // });
 
   // test('onError called when request error', (done) => {
   //   const onError = jest.fn();
