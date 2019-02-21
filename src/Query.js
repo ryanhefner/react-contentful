@@ -72,36 +72,34 @@ class Query extends Component {
       onRequest(this.state);
 
       const requestLocale = locale || contextLocale;
+      const request = await id
+        ? client.getEntry(id, {
+            locale: requestLocale,
+            include,
+            ...query
+          })
+        : client.getEntries({
+            'content_type': contentType,
+            locale: requestLocale,
+            include,
+            ...query
+          });
 
-      try {
-        const data = await id
-          ? client.getEntry(id, {
-              locale: requestLocale,
-              include,
-              ...query
-            })
-          : client.getEnties({
-              'content_type': contentType,
-              locale: requestLocale,
-              include,
-              ...query
-            });
-
+      request.then(response => {
         this.setState({
-          data: parser(data),
+          data: parser(response),
           loading: false,
         }, () => {
           onLoad(this.state);
         });
-      }
-      catch (error) {
+      }).catch(error => {
         this.setState({
           error,
           loading: false,
         }, () => {
           onError(this.state);
         });
-      }
+      });
     });
   }
 
