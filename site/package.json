@@ -2,7 +2,7 @@
   "name": "site",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://ryanhefner.github.io/react-contentful",
+  "homepage": "https://ryanhefner.github.io/react-contentful",
   "dependencies": {
     "react": "^16.8.1",
     "react-contentful": "0.0.1",

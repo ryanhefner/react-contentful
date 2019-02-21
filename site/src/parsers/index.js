@@ -1,5 +1,5 @@
 const pageParser = (data) => {
-  if (!data.items.length) {
+  if (!data.items || !data.items.length) {
     return null;
   }
 
