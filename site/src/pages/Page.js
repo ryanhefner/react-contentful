@@ -7,7 +7,9 @@ const Page = (props) => (
   <Query
     contentType="Page"
     parser={pageParser}
-    query={{'fields.slug[in]': `/${props.directory || ''}${props.match.slug || ''}`}}
+    query={{
+      'fields.slug[in]': `/${props.directory || ''}${props.match.slug || ''}`,
+    }}
    >
     {({data, error, loading}) => {
       if ((!data && !error) || loading) {
