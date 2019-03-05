@@ -1,6 +1,5 @@
 const contentful = require('contentful');
 import invariant from 'invariant';
-import lomit from 'lomit';
 
 export default (options) => {
   invariant(
@@ -14,7 +13,6 @@ export default (options) => {
   );
 
   return contentful.createClient({
-    ...lomit(options, ['preview']),
-    host: options.preview ? 'preview.contentful.com' : 'cdn.contentful.com',
+    ...options,
   });
 };
