@@ -25,6 +25,7 @@
     "ContentfulProvider.js",
     "es",
     "index.js",
+    "parsers",
     "Query.js",
     "src",
     "umd",
@@ -44,7 +45,7 @@
     "prepare": "npm run build",
     "prepublishOnly": "node ./tools/build.js",
     "push-release": "git push origin master && git push --tags",
-    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js"
+    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js src/parsers/fieldsParser.js"
   },
   "peerDependencies": {
     "react": "^16.4.0-0"
