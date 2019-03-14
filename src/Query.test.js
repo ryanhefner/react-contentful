@@ -116,23 +116,23 @@ describe('<Query />', () => {
 
   // });
 
-  test('onRequest called when valid props supplied', () => {
-    const onRequest = jest.fn();
-    error = jest.spyOn(global.console, 'error');
-    component = mount((
-      <ContentfulProvider client={contentfulClient}>
-        <Query
-          id="1"
-          onRequest={onRequest}
-        />
-      </ContentfulProvider>
-    ), {
-      attachTo: document.getElementById('root'),
-    });
-    expect(error).not.toHaveBeenCalled();
-    expect(onRequest).toHaveBeenCalled();
-    component.unmount();
-  });
+  // test('onRequest called when valid props supplied', () => {
+  //   const onRequest = jest.fn();
+  //   error = jest.spyOn(global.console, 'error');
+  //   component = mount((
+  //     <ContentfulProvider client={contentfulClient}>
+  //       <Query
+  //         id="1"
+  //         onRequest={onRequest}
+  //       />
+  //     </ContentfulProvider>
+  //   ), {
+  //     attachTo: document.getElementById('root'),
+  //   });
+  //   expect(error).not.toHaveBeenCalled();
+  //   expect(onRequest).toHaveBeenCalled();
+  //   component.unmount();
+  // });
 
   // test('onLoad called when valid props supplied', (done) => {
   //   const onLoad = jest.fn();
