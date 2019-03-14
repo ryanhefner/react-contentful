@@ -1,18 +1,75 @@
+import ContentfulCache from './ContentfulCache';
 const contentful = require('contentful');
 import invariant from 'invariant';
 
-export default (options) => {
+export default (clientOptions) => {
   invariant(
-    options.accessToken,
+    clientOptions.accessToken,
     'ContentfulClient not created because `accessToken` was not provided.'
   );
 
   invariant(
-    options.space,
+    clientOptions.space,
     'ContentfulClient not created because `space` was not provided.'
   );
 
-  return contentful.createClient({
-    ...options,
+  const client = contentful.createClient({
+    ...clientOptions,
   });
+
+  const cache = clientOptions.cache || new ContentfulCache();
+
+  return {
+    cache,
+    ssrMode: clientOptions.ssrMode || false,
+    ...client,
+    getEntry: async (id, options) => {
+      try {
+        const requestKey = JSON.stringify({id, options});
+        const cacheEntry = cache.has(requestKey) && cache.read(requestKey);
+
+        if (cacheEntry) {
+          return Promise.resolve(cacheEntry);
+        }
+
+        const request = client.getEntry(id, options);
+
+        if (!clientOptions.ssrMode) {
+          cache.write(requestKey, request);
+        }
+
+        const response = await request;
+        cache.write(requestKey, response);
+
+        return Promise.resolve(response);
+      }
+      catch (error) {
+        return Promise.reject(error);
+      }
+    },
+    getEntries: async (options) => {
+      try {
+        const requestKey = JSON.stringify(options);
+        const cacheEntry = cache.has(requestKey) && cache.read(requestKey);
+
+        if (cacheEntry) {
+          return Promise.reesolve(cacheEntry);
+        }
+
+        const request = client.getEntries(options);
+
+        if (!clientOptions.ssrMode) {
+          cache.write(requestKey, request);
+        }
+
+        const response = await request;
+        cache.write(requestKey, response);
+
+        return Promise.resolve(response);
+      }
+      catch (error) {
+        return Promise.reject(error);
+      }
+    },
+  };
 };
