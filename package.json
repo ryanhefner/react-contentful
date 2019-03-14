@@ -2,10 +2,7 @@
   "name": "react-contentful",
   "version": "0.1.0",
   "description": "React library for interacting with and rendering Contenful data.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryanhefner/react-contentful.git"
-  },
+  "repository": "ryanhefner/react-contentful",
   "keywords": [
     "react",
     "contentful",
@@ -20,15 +17,18 @@
   },
   "homepage": "https://github.com/ryanhefner/react-contentful#readme",
   "files": [
+    "es",
+    "parsers",
+    "src",
+    "umd",
+    "ContentfulCache.js",
     "ContentfulClient.js",
     "ContentfulContext.js",
     "ContentfulProvider.js",
-    "es",
+    "getDataFromTree.js",
     "index.js",
-    "parsers",
     "Query.js",
-    "src",
-    "umd",
+    "RenderPromises.js",
     "withContentful.js"
   ],
   "directories": {
@@ -48,7 +48,8 @@
     "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js src/parsers/fieldsParser.js"
   },
   "peerDependencies": {
-    "react": "^16.4.0-0"
+    "react": "^16.4.0-0",
+    "react-dom": "^16.4.0-0"
   },
   "dependencies": {
     "@babel/runtime": "^7.3.1",
@@ -64,7 +65,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
