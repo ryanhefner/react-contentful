@@ -69,8 +69,10 @@ import { Query } from 'react-contentful';
 const Page = (props) => (
   <Query
     contentType="Page"
-    query={{'fields.slug[in]': `/${props.match.slug || ''}`}}
-   >
+    query={{
+      'fields.slug[in]': `/${props.match.slug || ''}`,
+    }}
+  >
     {({data, error, loading}) => {
       if ((!data && !error) || loading) {
         return null;
