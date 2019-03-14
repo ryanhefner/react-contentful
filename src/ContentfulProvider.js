@@ -10,11 +10,13 @@ class ContentfulProvider extends Component {
     const {
       client,
       locale,
+      renderPromises,
     } = props;
 
     this.state = {
       client,
       locale,
+      renderPromises,
     };
   }
 
