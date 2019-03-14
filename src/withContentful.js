@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import hoistStatics from 'hoist-non-react-statics';
+import { getDisplayName } from './hoc-utils';
 import ContentfulContext from './ContentfulContext';
 
 /**
@@ -26,7 +27,7 @@ function withContentful(Component) {
   };
 
   C.context = ContentfulContext;
-  C.displayName = `withContentful(${Component.displayName || Component.name})`;
+  C.displayName = `withContentful(${getDisplayName(Component)})`;
   C.WrappedComponent = Component;
 
   // if (__DEV__) {
