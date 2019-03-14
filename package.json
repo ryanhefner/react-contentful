@@ -26,6 +26,7 @@
     "ContentfulContext.js",
     "ContentfulProvider.js",
     "getDataFromTree.js",
+    "hoc-utils.js",
     "index.js",
     "Query.js",
     "RenderPromises.js",
