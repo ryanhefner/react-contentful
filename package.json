@@ -1,6 +1,6 @@
 {
   "name": "react-contentful",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React library for interacting with and rendering Contenful data.",
   "repository": "ryanhefner/react-contentful",
   "keywords": [
