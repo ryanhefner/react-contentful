@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-contentful/static/css/main.afb8925f.chunk.css",
-  "main.js": "/react-contentful/static/js/main.8fedb138.chunk.js",
-  "main.js.map": "/react-contentful/static/js/main.8fedb138.chunk.js.map",
-  "runtime~main.js": "/react-contentful/static/js/runtime~main.52fca8b6.js",
-  "runtime~main.js.map": "/react-contentful/static/js/runtime~main.52fca8b6.js.map",
-  "static/js/2.c68935a7.chunk.js": "/react-contentful/static/js/2.c68935a7.chunk.js",
-  "static/js/2.c68935a7.chunk.js.map": "/react-contentful/static/js/2.c68935a7.chunk.js.map",
+  "main.css": "/react-contentful/static/css/main.aeecb3b4.chunk.css",
+  "main.js": "/react-contentful/static/js/main.65a049a7.chunk.js",
+  "main.js.map": "/react-contentful/static/js/main.65a049a7.chunk.js.map",
+  "runtime~main.js": "/react-contentful/static/js/runtime~main.ae78d448.js",
+  "runtime~main.js.map": "/react-contentful/static/js/runtime~main.ae78d448.js.map",
+  "static/js/2.3ac8bec4.chunk.js": "/react-contentful/static/js/2.3ac8bec4.chunk.js",
+  "static/js/2.3ac8bec4.chunk.js.map": "/react-contentful/static/js/2.3ac8bec4.chunk.js.map",
   "index.html": "/react-contentful/index.html",
-  "precache-manifest.f018645c60dca590b3d6553b034a3ba4.js": "/react-contentful/precache-manifest.f018645c60dca590b3d6553b034a3ba4.js",
+  "precache-manifest.01baa83d2c1a96b70cf33404e4633634.js": "/react-contentful/precache-manifest.01baa83d2c1a96b70cf33404e4633634.js",
   "service-worker.js": "/react-contentful/service-worker.js",
-  "static/css/main.afb8925f.chunk.css.map": "/react-contentful/static/css/main.afb8925f.chunk.css.map"
+  "static/css/main.aeecb3b4.chunk.css.map": "/react-contentful/static/css/main.aeecb3b4.chunk.css.map"
 }
