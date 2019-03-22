@@ -53,7 +53,7 @@ export default (clientOptions) => {
         const cacheEntry = cache.has(requestKey) && cache.read(requestKey);
 
         if (cacheEntry) {
-          return Promise.reesolve(cacheEntry);
+          return Promise.resolve(cacheEntry);
         }
 
         const request = client.getEntries(options);
