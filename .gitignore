@@ -2,6 +2,7 @@
 coverage
 es
 node_modules
+parsers
 umd
 /*.js
 !rollup.config.js

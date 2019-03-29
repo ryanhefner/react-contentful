@@ -1,1 +1,1 @@
-export { default as fieldsParser } from './fieldsParser';
+export { fieldsParser } from 'contentful-parsers';

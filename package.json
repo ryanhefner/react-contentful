@@ -39,14 +39,14 @@
   "module": "es/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
-    "clean": "rm -f index.js && rm -rf es && rm -rf umd",
+    "clean": "rm -f index.js && rm -f ContentfulCache.js && rm -f ContentfulClient.js && rm -f ContentfulContext.js && rm -f ContentfulProvider.js && rm -f getDataFromTree.js && rm -f hoc-utils.js && rm -f Query.js && rm -f RenderPromises.js && rm -f withContentful.js && rm -rf parsers && rm -rf es && rm -rf umd",
     "prebuild": "npm run clean",
     "build": "node ./tools/build.js",
     "watch": "babel ./src -d . --ignore __mocks__,__tests__,**/*.test.js --watch",
     "prepare": "npm run build",
     "prepublishOnly": "node ./tools/build.js",
     "push-release": "git push origin master && git push --tags",
-    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js src/parsers/fieldsParser.js"
+    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js"
   },
   "peerDependencies": {
     "react": "^16.4.0-0",
@@ -56,6 +56,7 @@
     "@babel/runtime": "^7.4.2",
     "@contentful/rich-text-react-renderer": "^13.2.0",
     "contentful": "^7.5.0",
+    "contentful-parsers": "^0.1.1",
     "hoist-non-react-statics": "^3.3.0",
     "invariant": "^2.2.4",
     "lomit": "^0.1.1",
