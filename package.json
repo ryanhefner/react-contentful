@@ -57,6 +57,7 @@
     "@contentful/rich-text-react-renderer": "^13.2.0",
     "contentful": "^7.5.0",
     "contentful-parsers": "^0.1.4",
+    "flatted": "^2.0.0",
     "hoist-non-react-statics": "^3.3.0",
     "invariant": "^2.2.4",
     "lomit": "^0.1.1",
