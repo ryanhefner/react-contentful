@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/react-contentful/static/js/runtime~main.ae78d448.js"
   },
   {
-    "revision": "cc8b12d4f592d3f67ecf",
-    "url": "/react-contentful/static/js/2.3ac8bec4.chunk.js"
+    "revision": "d8421b40d2bb9379be2e",
+    "url": "/react-contentful/static/js/2.8fabc688.chunk.js"
   },
   {
-    "revision": "36c4e26e951fc15705c9fc0719a5f597",
+    "revision": "19b01e1331b508b29ffade75f5efe1f5",
     "url": "/react-contentful/index.html"
   }
 ];
