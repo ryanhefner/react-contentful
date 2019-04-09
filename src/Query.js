@@ -132,7 +132,7 @@ class Query extends Component {
 
         this.fetchData().then(response => {
           this.setState({
-            data: parser(response),
+            data: parser(response, this.props),
             loading: false,
           }, () => {
             onLoad(this.state);
