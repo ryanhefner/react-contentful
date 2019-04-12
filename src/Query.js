@@ -14,10 +14,16 @@ class Query extends Component {
       error: null,
       data,
     };
+
+    if (data) {
+      props.onLoad(this.state);
+    }
   }
 
   componentDidMount() {
-    this.requestContentfulData();
+    if (!this.state.data) {
+      this.requestContentfulData();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -73,6 +79,7 @@ class Query extends Component {
   checkCache(props) {
     const {
       contentful,
+      parser,
     } = props;
 
     if (!contentful) {
@@ -85,7 +92,11 @@ class Query extends Component {
       return null;
     }
 
-    return contentful.client.checkCache(cacheKey);
+    const cache = contentful.client.checkCache(cacheKey);
+
+    return cache
+      ? parser(cache, props)
+      : null;
   }
 
   generateCacheKey(props) {
