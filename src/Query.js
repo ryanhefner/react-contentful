@@ -7,10 +7,12 @@ class Query extends Component {
   constructor(props) {
     super(props);
 
+    const data = this.checkCache(props);
+
     this.state = {
       loading: false,
       error: null,
-      data: null,
+      data,
     };
   }
 
@@ -65,6 +67,60 @@ class Query extends Component {
       }
 
       return resolve(true);
+    });
+  }
+
+  checkCache(props) {
+    const {
+      contentful,
+    } = props;
+
+    if (!contentful) {
+      return null;
+    }
+
+    const cacheKey = this.generateCacheKey(props);
+
+    if (!contentful.client) {
+      return null;
+    }
+
+    return contentful.client.checkCache(cacheKey);
+  }
+
+  generateCacheKey(props) {
+    const {
+      contentful,
+      contentType,
+      id,
+      include,
+      locale,
+      query,
+    } = props;
+
+    if (!contentful) {
+      return null;
+    }
+
+    const {
+      locale: contextLocale,
+    } = contentful;
+
+    const requestLocale = locale || contextLocale;
+
+    if (id) {
+      return JSON.stringify({id, options: {
+        locale: requestLocale,
+        include,
+        ...query
+      }});
+    }
+
+    return JSON.stringify({
+      content_type: contentType,
+      locale: requestLocale,
+      include,
+      ...query
     });
   }
 
