@@ -29,8 +29,13 @@ export const mockGetEntries = async function(params) {
   });
 };
 
+export const mockCheckCache = function(requestKey) {
+  return null;
+};
+
 function ContentfulClient () {
   return {
+    checkCache: mockCheckCache,
     getEntry: mockGetEntry,
     getEntries: mockGetEntries,
   };

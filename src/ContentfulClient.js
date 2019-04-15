@@ -23,6 +23,9 @@ export default (clientOptions) => {
     cache,
     ssrMode: clientOptions.ssrMode || false,
     ...client,
+    checkCache: (requestKey) => {
+      return cache.has(requestKey) && cache.read(requestKey);
+    },
     getEntry: async (id, options) => {
       try {
         const requestKey = JSON.stringify({id, options});

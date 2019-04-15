@@ -7,15 +7,23 @@ class Query extends Component {
   constructor(props) {
     super(props);
 
+    const data = this.checkCache(props);
+
     this.state = {
       loading: false,
       error: null,
-      data: null,
+      data,
     };
+
+    if (data) {
+      props.onLoad(this.state);
+    }
   }
 
   componentDidMount() {
-    this.requestContentfulData();
+    if (!this.state.data) {
+      this.requestContentfulData();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -65,6 +73,65 @@ class Query extends Component {
       }
 
       return resolve(true);
+    });
+  }
+
+  checkCache(props) {
+    const {
+      contentful,
+      parser,
+    } = props;
+
+    if (!contentful) {
+      return null;
+    }
+
+    const cacheKey = this.generateCacheKey(props);
+
+    if (!contentful.client) {
+      return null;
+    }
+
+    const cache = contentful.client.checkCache(cacheKey);
+
+    return cache
+      ? parser(cache, props)
+      : null;
+  }
+
+  generateCacheKey(props) {
+    const {
+      contentful,
+      contentType,
+      id,
+      include,
+      locale,
+      query,
+    } = props;
+
+    if (!contentful) {
+      return null;
+    }
+
+    const {
+      locale: contextLocale,
+    } = contentful;
+
+    const requestLocale = locale || contextLocale;
+
+    if (id) {
+      return JSON.stringify({id, options: {
+        locale: requestLocale,
+        include,
+        ...query
+      }});
+    }
+
+    return JSON.stringify({
+      content_type: contentType,
+      locale: requestLocale,
+      include,
+      ...query
     });
   }
 
@@ -132,7 +199,7 @@ class Query extends Component {
 
         this.fetchData().then(response => {
           this.setState({
-            data: parser(response),
+            data: parser(response, this.props),
             loading: false,
           }, () => {
             onLoad(this.state);
