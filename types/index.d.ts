@@ -4,6 +4,7 @@ import ContentfulCache from './ContentfulCache';
 import ContentfulClient from './ContentfulClient';
 import ContentfulContext from './ContentfulContext';
 import ContentfulProvider from './ContentfulProvider';
+import * as hocUtils from './hoc-utils';
 import Query from './Query';
 import RenderPromises from './RenderPromises';
 import getDataFromTree from './getDataFromTree';
@@ -14,8 +15,9 @@ export {
   ContentfulClient,
   ContentfulContext,
   ContentfulProvider,
+  getDataFromTree,
+  hocUtils,
   Query,
   RenderPromises,
-  getDataFromTree,
   withContentful,
 };
