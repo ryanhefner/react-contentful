@@ -20,6 +20,7 @@
     "es",
     "parsers",
     "src",
+    "types",
     "umd",
     "ContentfulCache.js",
     "ContentfulClient.js",
