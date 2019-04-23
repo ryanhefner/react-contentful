@@ -2,7 +2,8 @@
 
 import { Component, Context } from 'react';
 import {
-  ContentfulClientApi as ContentfulClientApiContentful,
+  CreateClientParams,
+  ContentfulClientApi,
   Entry,
   EntryCollection,
 } from 'contentful';
@@ -30,22 +31,18 @@ export class ContentfulCache {
  * ContentfulClient
  */
 
-export interface ContentfulClientParams {
-  accessToken: string;
-  space: string;
+export interface ContentfulClientParams extends CreateClientParams {
   cache?: ContentfulCache;
   ssrMode?: boolean;
 }
 
-export interface ContentfulClient {
+export interface ContentfulClientInterface extends ContentfulClientApi {
   cache: ContentfulCache;
   ssrMode: boolean;
   checkCache(requestKey: string): any;
-  getEntry(id: string, options?: any): Promise<Entry<{}>>;
-  getEntries(options?: any): Promise<EntryCollection<{}>>;
 }
 
-export function ContentfulClient(options: ContentfulClientParams): ContentfulClient;
+export function ContentfulClient(options: CreateClientParams): ContentfulClientInterface;
 
 /**
  * ContentfulContext
@@ -60,7 +57,7 @@ export interface AnyContextProps extends ContextProps {
 }
 
 export interface ContentfulContext<A extends ContextProps = AnyContextProps> {
-  client: ContentfulClient;
+  client: ContentfulClientInterface;
   locale?: string;
   renderPromises?: boolean;
 }
@@ -72,7 +69,7 @@ export class ContentfulContext {}
  */
 
 export interface ProviderProps {
-  client: ContentfulClient;
+  client: ContentfulClientInterface;
   context: ContentfulContext;
   locale: string;
   renderPromises?: boolean;
