@@ -1,6 +1,6 @@
 {
   "name": "react-contentful",
-  "version": "1.2.2",
+  "version": "1.3.0-beta.6",
   "description": "React library for interacting with and rendering Contenful data.",
   "repository": "ryanhefner/react-contentful",
   "keywords": [
@@ -20,6 +20,7 @@
     "es",
     "parsers",
     "src",
+    "types",
     "umd",
     "ContentfulCache.js",
     "ContentfulClient.js",
@@ -38,6 +39,7 @@
   "main": "index.js",
   "module": "es/index.js",
   "jsnext:main": "src/index.js",
+  "types": "types",
   "scripts": {
     "clean": "rm -f index.js && rm -f ContentfulCache.js && rm -f ContentfulClient.js && rm -f ContentfulContext.js && rm -f ContentfulProvider.js && rm -f getDataFromTree.js && rm -f hoc-utils.js && rm -f Query.js && rm -f RenderPromises.js && rm -f withContentful.js && rm -rf parsers && rm -rf es && rm -rf umd",
     "prebuild": "npm run clean",
@@ -46,6 +48,7 @@
     "prepare": "npm run build",
     "prepublishOnly": "node ./tools/build.js",
     "push-release": "git push origin master && git push --tags",
+    "dtslint": "dtslint types",
     "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js"
   },
   "peerDependencies": {
@@ -55,6 +58,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "@contentful/rich-text-react-renderer": "^13.2.0",
+    "@types/react": "^16.8.13",
     "contentful": "^7.5.0",
     "contentful-parsers": "^0.2.1",
     "flatted": "^2.0.0",
@@ -79,6 +83,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-polyfill": "^6.26.0",
     "coveralls": "^3.0.3",
+    "dtslint": "^0.6.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "greenkeeper-lockfile": "^1.15.1",
