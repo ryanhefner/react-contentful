@@ -2,7 +2,7 @@
 
 import { Component } from 'react';
 import { ContentfulClientApi } from './ContentfulClient';
-import { ContentfulContext } from './ContentfulContext';
+import ContentfulContext from './ContentfulContext';
 
 export interface ProviderProps {
   client: ContentfulClientApi;
@@ -11,6 +11,4 @@ export interface ProviderProps {
   renderPromises?: boolean;
 }
 
-export class ContentfulProvider extends Component<ProviderProps> {}
-
-export default ContentfulProvider;
+export default class ContentfulProvider extends Component<ProviderProps> {}

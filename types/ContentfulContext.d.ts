@@ -1,10 +1,7 @@
 // TypeScript Version: 3.0
 
 import { Context } from 'react';
-import {
-  ContentfulClientApi,
-  ContentfulClientParams,
-} from './ContentfulClient';
+import { ContentfulClientApi } from './ContentfulClient';
 
 export interface ContextProps<T = any> {
   client: T;
@@ -20,6 +17,4 @@ export interface ContentfulContextValue<A extends ContextProps = AnyContextProps
   renderPromises?: boolean;
 }
 
-export class ContentfulContext {}
-
-export default ContentfulContext;
+export default class ContentfulContext {}

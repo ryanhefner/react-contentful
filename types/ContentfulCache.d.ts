@@ -4,7 +4,7 @@ export interface CacheMapMapObject {
   [key: string]: any;
 }
 
-declare class ContentfulCache {
+export default class ContentfulCache {
   constructor(cache: CacheMapMapObject);
 
   clear(): ContentfulCache;
@@ -14,5 +14,3 @@ declare class ContentfulCache {
   restore(cache: CacheMapMapObject | string | null): ContentfulCache;
   write(key: string, value: any): ContentfulCache;
 }
-
-export default ContentfulCache;

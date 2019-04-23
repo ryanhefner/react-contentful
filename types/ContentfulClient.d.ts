@@ -3,7 +3,7 @@
 import {
   ContentfulClientApi as ContentfulClientApiContentful,
   Entry,
-  EntryCollection
+  EntryCollection,
 } from 'contentful';
 import ContentfulCache from './ContentfulCache';
 

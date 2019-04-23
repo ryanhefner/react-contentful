@@ -11,7 +11,7 @@ export interface QueryMap {
   [key: string]: any;
 }
 
-declare class RenderPromises {
+export default class RenderPromises {
   queryPromises: QueryMap;
   queryInfoTrie: QueryMap;
   registerSSRObservable(queryInstance: Component, observable: Promise<any>): void;
@@ -21,5 +21,3 @@ declare class RenderPromises {
   consumeAndAwait(): Promise<any>;
   lookupQueryInfo(queryInstance: Component): QueryInfo;
 }
-
-export default RenderPromises;
