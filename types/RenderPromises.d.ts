@@ -2,12 +2,12 @@
 
 import { Component } from 'react';
 
-interface QueryInfo {
+export interface QueryInfo {
   seen: boolean;
   observable: Promise<any> | null;
 }
 
-interface QueryMap {
+export interface QueryMap {
   [key: string]: any;
 }
 
