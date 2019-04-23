@@ -104,9 +104,8 @@ export function getDisplayName(WrappedComponent: Component): string;
 
 export type ParserHandler = (data: any, props: any) => any;
 
-export interface QueryProps extends Component {
-  contentful: ContentfulContext;
-  parser: ParserHandler;
+export interface QueryProps {
+  parser?: ParserHandler;
   id?: string;
   contentType?: string;
   locale?: string;
