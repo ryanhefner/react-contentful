@@ -70,8 +70,8 @@ export class ContentfulContext {}
 
 export interface ProviderProps {
   client: ContentfulClientInterface;
-  context: ContentfulContext;
-  locale: string;
+  context?: ContentfulContext;
+  locale?: string;
   renderPromises?: boolean;
 }
 
