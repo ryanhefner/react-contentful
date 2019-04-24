@@ -51,8 +51,8 @@ export class ContentfulClient implements ContentfulClientApi {
   getAssets(query?: any): Promise<AssetCollection>;
   getContentType(id: string): Promise<ContentType>;
   getContentTypes(query?: any): Promise<ContentTypeCollection>;
-  getEntry<T>(id: string, query?: any): Promise<Entry<T>>;
-  getEntries<T>(query?: any): Promise<EntryCollection<T>>;
+  getEntry(id: string, query?: any): Promise<Entry<any>>;
+  getEntries(query?: any): Promise<EntryCollection<any>>;
   getLocales(): Promise<LocaleCollection>;
   getSpace(): Promise<Space>;
   sync(query: any): Promise<SyncCollection>;
@@ -71,7 +71,7 @@ export interface AnyContextProps extends ContextProps {
 }
 
 export interface ContentfulContext<A extends ContextProps = AnyContextProps> {
-  client: ContentfulClientInterface;
+  client: ContentfulClient;
   locale?: string;
   renderPromises?: boolean;
 }
@@ -83,7 +83,7 @@ export class ContentfulContext {}
  */
 
 export interface ProviderProps {
-  client: ContentfulClientInterface;
+  client: ContentfulClient;
   context?: ContentfulContext;
   locale?: string;
   renderPromises?: boolean;
