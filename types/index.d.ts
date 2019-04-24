@@ -2,10 +2,17 @@
 
 import { Component, Context } from 'react';
 import {
+  Asset,
+  AssetCollection,
+  ContentType,
+  ContentTypeCollection,
   CreateClientParams,
   ContentfulClientApi,
   Entry,
   EntryCollection,
+  LocaleCollection,
+  Space,
+  SyncCollection,
 } from 'contentful';
 
 /**
@@ -36,13 +43,20 @@ export interface ContentfulClientParams extends CreateClientParams {
   ssrMode?: boolean;
 }
 
-export interface ContentfulClientInterface extends ContentfulClientApi {
+export class ContentfulClient implements ContentfulClientApi {
   cache: ContentfulCache;
   ssrMode: boolean;
   checkCache(requestKey: string): any;
+  getAsset(id: string, query?: any): Promise<Asset>;
+  getAssets(query?: any): Promise<AssetCollection>;
+  getContentType(id: string): Promise<ContentType>;
+  getContentTypes(query?: any): Promise<ContentTypeCollection>;
+  getEntry<T>(id: string, query?: any): Promise<Entry<T>>;
+  getEntries<T>(query?: any): Promise<EntryCollection<T>>;
+  getLocales(): Promise<LocaleCollection>;
+  getSpace(): Promise<Space>;
+  sync(query: any): Promise<SyncCollection>;
 }
-
-export function ContentfulClient(options: CreateClientParams): ContentfulClientInterface;
 
 /**
  * ContentfulContext
