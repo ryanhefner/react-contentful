@@ -1,6 +1,6 @@
 // TypeScript Version: 3.0
 
-import { Component, Context } from 'react';
+import { Component, Context, ReactNode } from 'react';
 import {
   Asset,
   AssetCollection,
@@ -43,20 +43,13 @@ export interface ContentfulClientParams extends CreateClientParams {
   ssrMode?: boolean;
 }
 
-export class ContentfulClient implements ContentfulClientApi {
+export interface ContentfulClientInterface extends ContentfulClientApi {
   cache: ContentfulCache;
   ssrMode: boolean;
   checkCache(requestKey: string): any;
-  getAsset(id: string, query?: any): Promise<Asset>;
-  getAssets(query?: any): Promise<AssetCollection>;
-  getContentType(id: string): Promise<ContentType>;
-  getContentTypes(query?: any): Promise<ContentTypeCollection>;
-  getEntry(id: string, query?: any): Promise<Entry<any>>;
-  getEntries(query?: any): Promise<EntryCollection<any>>;
-  getLocales(): Promise<LocaleCollection>;
-  getSpace(): Promise<Space>;
-  sync(query: any): Promise<SyncCollection>;
 }
+
+export function ContentfulClient(options: ContentfulClientParams): ContentfulClientInterface;
 
 /**
  * ContentfulContext
@@ -71,7 +64,7 @@ export interface AnyContextProps extends ContextProps {
 }
 
 export interface ContentfulContext<A extends ContextProps = AnyContextProps> {
-  client: ContentfulClient;
+  client: ContentfulClientInterface;
   locale?: string;
   renderPromises?: boolean;
 }
@@ -82,11 +75,12 @@ export class ContentfulContext {}
  * ContentfulProvider
  */
 
-export interface ProviderProps {
-  client: ContentfulClient;
+export declare interface ProviderProps {
+  client: ContentfulClientInterface;
+  children?: ReactNode;
   context?: ContentfulContext;
   locale?: string;
-  renderPromises?: boolean;
+  renderPromises?: RenderPromises;
 }
 
 export class ContentfulProvider extends Component<ProviderProps> {}

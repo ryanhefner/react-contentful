@@ -38,6 +38,7 @@ ContentfulProvider.propTypes = {
   client: PropTypes.object,
   context: PropTypes.object,
   locale: PropTypes.string,
+  renderPromises: PropTypes.object,
 };
 
 ContentfulProvider.defaultProps = {
