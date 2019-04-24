@@ -75,7 +75,7 @@ export class ContentfulContext {}
  * ContentfulProvider
  */
 
-export declare interface ProviderProps {
+export interface ProviderProps {
   client: ContentfulClientInterface;
   children?: ReactNode;
   context?: ContentfulContext;
