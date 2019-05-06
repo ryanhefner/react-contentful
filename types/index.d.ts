@@ -112,12 +112,23 @@ export function getDisplayName(WrappedComponent: Component): string;
 
 export type ParserHandler = (data: any, props: any) => any;
 
+export interface QueryState {
+  loading: boolean;
+  data?: any;
+  error?: any;
+}
+
 export interface QueryProps {
-  parser?: ParserHandler;
-  id?: string;
   contentType?: string;
+  id?: string;
+  include?: number;
   locale?: string;
+  parser?: ParserHandler;
   query?: object;
+  skip?: boolean;
+  onError?: (state: QueryState) => void;
+  onLoad?: (state: QueryState) => void;
+  onRequest?: (state: QueryState) => void;
 }
 
 export class Query extends Component<QueryProps> {}

@@ -245,9 +245,9 @@ Query.propTypes = {
   query: PropTypes.object,
   parser: PropTypes.func,
   skip: PropTypes.bool,
-  onRequest: PropTypes.func,
-  onLoad: PropTypes.func,
   onError: PropTypes.func,
+  onLoad: PropTypes.func,
+  onRequest: PropTypes.func,
 };
 
 Query.defaultProps = {
@@ -255,10 +255,10 @@ Query.defaultProps = {
   include: 10,
   query: {},
   skip: false,
-  parser: (data) => data,
-  onRequest: () => {},
-  onLoad: () => {},
+  parser: (data, props) => data,
   onError: () => {},
+  onLoad: () => {},
+  onRequest: () => {},
 };
 
 export default withContentful(Query);
