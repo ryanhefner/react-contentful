@@ -83,7 +83,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-polyfill": "^6.26.0",
     "coveralls": "^3.0.3",
-    "dtslint": "^0.7.1",
+    "dtslint": "^0.8.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "greenkeeper-lockfile": "^1.15.1",
