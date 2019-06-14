@@ -10,6 +10,7 @@ class Query extends Component {
     const data = this.checkCache(props);
 
     this.state = {
+      fetched: data ? true : false,
       loading: false,
       error: null,
       data,
@@ -28,7 +29,11 @@ class Query extends Component {
 
   componentDidUpdate(prevProps) {
     if (JSON.stringify(this.props) !== JSON.stringify(prevProps)) {
-      this.requestContentfulData();
+      this.setState({
+        fetched: false,
+      }, () => {
+        this.requestContentfulData();
+      });
     }
   }
 
@@ -193,6 +198,7 @@ class Query extends Component {
 
     this.validateRequestRequirements().then(() => {
       this.setState({
+        error: null,
         loading: true,
       }, async () => {
         onRequest(this.state);
@@ -200,6 +206,7 @@ class Query extends Component {
         this.fetchData().then(response => {
           this.setState({
             data: parser(response, this.props),
+            fetched: true,
             loading: false,
           }, () => {
             onLoad(this.state);
@@ -210,6 +217,7 @@ class Query extends Component {
     .catch(error => {
       this.setState({
         error,
+        fetched: true,
         loading: false,
       }, () => {
         onError(this.state);

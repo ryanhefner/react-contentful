@@ -113,6 +113,7 @@ export function getDisplayName(WrappedComponent: Component): string;
 export type ParserHandler = (data: any, props: any) => any;
 
 export interface QueryState {
+  fetched: boolean;
   loading: boolean;
   data?: any;
   error?: any;

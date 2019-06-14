@@ -73,8 +73,8 @@ const Page = (props) => (
       'fields.slug[in]': `/${props.match.slug || ''}`,
     }}
   >
-    {({data, error, loading}) => {
-      if ((!data && !error) || loading) {
+    {({data, error, fetched, loading}) => {
+      if (loading || !fetched) {
         return null;
       }
 
