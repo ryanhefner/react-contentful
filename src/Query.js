@@ -259,7 +259,7 @@ Query.propTypes = {
 };
 
 Query.defaultProps = {
-  children: ({data, error, loading}) => null,
+  children: ({data, error, fetched, loading}) => null,
   include: 10,
   query: {},
   skip: false,

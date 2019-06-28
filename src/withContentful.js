@@ -30,12 +30,6 @@ function withContentful(Component) {
   C.displayName = `withContentful(${getDisplayName(Component)})`;
   C.WrappedComponent = Component;
 
-  // if (__DEV__) {
-  //   C.propTypes = {
-  //     wrappedComponentRef: PropTypes.func
-  //   };
-  // }
-
   return hoistStatics(C, Component);
 }
 
