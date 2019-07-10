@@ -58,7 +58,7 @@ export default App;
 
 ### `Query`
 
-In this example, the `Query` component that creates a `query` parameter that
+In this example, the `Query` component accepts a `query` parameter that
 filters `Page` content types from Contentful based on the `slug` field set on
 published `Page` content models.
 
