@@ -52,8 +52,8 @@
     "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js"
   },
   "peerDependencies": {
-    "react": "^16.4.0-0",
-    "react-dom": "^16.4.0-0"
+    "react": ">=16.3",
+    "react-dom": ">=16.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.4",
