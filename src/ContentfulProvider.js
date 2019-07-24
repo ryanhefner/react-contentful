@@ -21,13 +21,15 @@ class ContentfulProvider extends Component {
   }
 
   render() {
-    const Context = this.props.context || ContentfulContext;
+    const { children, context } = this.props;
+
+    const Context = context || ContentfulContext;
 
     warning(this.state.client, 'No `client` specified on <ContentfulProvider />');
 
     return (
       <Context.Provider value={this.state}>
-        {this.props.children}
+        {children}
       </Context.Provider>
     );
   }
@@ -35,14 +37,17 @@ class ContentfulProvider extends Component {
 
 ContentfulProvider.propTypes = {
   children: PropTypes.any,
-  client: PropTypes.object,
+  client: PropTypes.object.isRequired,
   context: PropTypes.object,
   locale: PropTypes.string,
   renderPromises: PropTypes.object,
 };
 
 ContentfulProvider.defaultProps = {
+  children: null,
+  context: null,
   locale: 'en-US',
+  renderPromises: null,
 };
 
 export default ContentfulProvider;
