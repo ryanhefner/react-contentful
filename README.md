@@ -204,8 +204,8 @@ export default withContentful(YourComponent);
 
 ## Using Next.js?
 
-If you like what you see above, you might like, [next-contentful](https://github.com/ryanhefner/next-contentful),
-which lets you easily add `react-contentful` to your Next.js app, making it easy
+If you like what you see above, you might like [next-contentful](https://github.com/ryanhefner/next-contentful),
+which lets you easily add `react-contentful` to your Next.js app. Making it easy
 to ensure that all your `Query` instances render awesomely server-side.
 
 
