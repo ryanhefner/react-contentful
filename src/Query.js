@@ -36,7 +36,16 @@ class Query extends Component {
       });
     }
   }
-
+  
+  //check empty obj
+  function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+  } 
+  
   async validateRequestRequirements() {
     return new Promise((resolve, reject) => {
       const {
@@ -68,7 +77,7 @@ class Query extends Component {
         return reject('ContentfulClient not available via context on <Query />');
       }
 
-      const hasQuery = !!(id || contentType || query !== {});
+      const hasQuery = !!(id || contentType || !this.isEmpty(query));
 
       // Check to make sure queryable props have been set
       warning(hasQuery, 'Query props not set on <Query />');
