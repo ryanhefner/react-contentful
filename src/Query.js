@@ -38,7 +38,7 @@ class Query extends Component {
   }
   
   //check empty obj
-  function isEmpty(obj) {
+  isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
             return false;

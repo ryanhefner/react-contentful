@@ -41,7 +41,7 @@
   "jsnext:main": "src/index.js",
   "types": "types",
   "scripts": {
-    "clean": "rm -f index.js && rm -f ContentfulCache.js && rm -f ContentfulClient.js && rm -f ContentfulContext.js && rm -f ContentfulProvider.js && rm -f getDataFromTree.js && rm -f hoc-utils.js && rm -f Query.js && rm -f RenderPromises.js && rm -f withContentful.js && rm -rf parsers && rm -rf es && rm -rf umd",
+    "clean": "echo here",
     "prebuild": "npm run clean",
     "build": "node ./tools/build.js",
     "watch": "babel ./src -d . --ignore __mocks__,__tests__,**/*.test.js --watch",
