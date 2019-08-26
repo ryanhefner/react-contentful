@@ -68,7 +68,7 @@ class Query extends Component {
         return reject('ContentfulClient not available via context on <Query />');
       }
 
-      const hasQuery = !!(id || contentType || query === {});
+      const hasQuery = !!(id || contentType || query !== {});
 
       // Check to make sure queryable props have been set
       warning(hasQuery, 'Query props not set on <Query />');
