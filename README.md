@@ -1,4 +1,4 @@
-# 📰 react-contentful
+# 📰 react-contentful-update
 
 [![npm version](https://badge.fury.io/js/react-contentful.svg)](https://badge.fury.io/js/react-contentful)
 [![npm](https://img.shields.io/npm/l/express.svg)](LICENSE)
@@ -12,53 +12,24 @@ content into your sites and applications.
 
 ## Install
 
-Via [npm](https://npmjs.com/package/react-contentful)
+Via [npm](https://npmjs.com/package/react-contentful-update)
 
 ```sh
-npm install react-contentful
+npm install react-contentful-update
 ```
 
-Via [Yarn](http://yarn.fyi/react-contentful)
+Via [Yarn](http://yarn.fyi/react-contentful-update)
 
 ```sh
-yarn add react-contentful
+yarn add react-contentful-update
 ```
 
 
-## How to use
+## Why this package is created
 
-The `ContentfulProvider` can provide a global context to your site or applications
-allowing you to connect to your Contentful content. By using either the `Query`
-component, or writing your own Contentful client consumer component which offers
-access to the `ContentfulClient` directly by using `withContentful`, all queries
-can be performed against Contentful that are available through their existing
-Javascript SDK.
+This is a modify version of `react-contentful` to be able use only `query` in `<Query />` component which I've made pull request but still pending so for the use of urgent case in my project I uploaded to npm. This is necessary in getting mutiple content types .I gave full credit to `react-contenful`. 
 
 
-### `ContentfulProvider`
-
-```js
-import React from 'react';
-import { ContentfulClient, ContentfulProvider } from 'react-contentful';
-import Page from './Page';  // @see Page component defined in `Query` example below
-
-const contentfulClient = new ContentfulClient({
-  accessToken: '[Your Contentful Content Delivery API - access token]',
-  space: '[Your Contentful Space ID]',
-});
-
-const App = () => (
-  <ContentfulProvider client={contentfulClient}>
-    <Router>
-      <Switch>
-        <Route path="/:slug*" component={Page} />
-      </Switch>
-    </Router>
-  </ContentfulProvider>
-);
-
-export default App;
-```
 
 
 ### `Query`
@@ -77,6 +48,50 @@ const Page = (props) => (
     contentType="Page"
     query={{
       'fields.slug[in]': `/${props.match.slug || ''}`,
+    }}
+  >
+    {({data, error, fetched, loading}) => {
+      if (loading || !fetched) {
+        return null;
+      }
+
+      if (error) {
+        console.error(error);
+        return null;
+      }
+
+      if (!data) {
+        return <p>Page does not exist.</p>;
+      }
+
+      // See the Contentful query response
+      console.debug(data);
+
+      // Process and pass in the loaded `data` necessary for your page or child components.
+      return (
+        ...
+      );
+    }}
+  </Query>
+);
+
+export default Page;
+```
+### `Query` component with multiple content type
+
+In this example, the `Query` component accepts a `query` parameter that
+accept query props to request mutliple content type.
+
+
+```js
+import React from 'react';
+import { Query } from 'react-contentful';
+
+const Page = (props) => (
+  <Query
+    contentType="Page"
+    query={{
+      'sys.contentType.sys.id[in]': 'contentType-1,contentType-2',
     }}
   >
     {({data, error, fetched, loading}) => {
