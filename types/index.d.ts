@@ -101,12 +101,6 @@ export function getDataFromTree(tree: any, context: any): any;
 export function getMarkupFromTree(tree: any, context: any, renderFunction: () => void): Promise<any>;
 
 /**
- * hoc-utils
- */
-
-export function getDisplayName(WrappedComponent: Component): string;
-
-/**
  * Query
  */
 

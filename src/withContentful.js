@@ -1,6 +1,6 @@
 import React from 'react';
 import hoistStatics from 'hoist-non-react-statics';
-import { getDisplayName } from './hoc-utils';
+import { getDisplayName } from 'react-hoc-helpers';
 import ContentfulContext from './ContentfulContext';
 
 /**
