@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import hoistStatics from 'hoist-non-react-statics';
 import { getDisplayName } from './hoc-utils';
 import ContentfulContext from './ContentfulContext';
