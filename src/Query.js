@@ -91,12 +91,11 @@ class Query extends Component {
       return null;
     }
 
-    const cacheKey = this.generateCacheKey(props);
-
     if (!contentful.client) {
       return null;
     }
 
+    const cacheKey = this.generateCacheKey(props);
     const cache = contentful.client.checkCache(cacheKey);
 
     return cache
