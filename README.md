@@ -1,7 +1,8 @@
 # 📰 react-contentful
 
-[![npm version](https://badge.fury.io/js/react-contentful.svg)](https://badge.fury.io/js/react-contentful)
-[![npm](https://img.shields.io/npm/l/express.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/react-contentful?style=flat-square)](https://github.com/ryanhefner/react-contentful)
+[![NPM](https://img.shields.io/npm/l/react-contentful?style=flat-square)](LICENSE)
+[![npm](https://img.shields.io/npm/dt/react-contentful?style=flat-square)](https://www.npmjs.com/package/react-contentful)
 [![Coverage Status](https://coveralls.io/repos/github/ryanhefner/react-contentful/badge.svg?branch=master)](https://coveralls.io/github/ryanhefner/react-contentful?branch=master)
 [![CircleCI](https://circleci.com/gh/ryanhefner/react-contentful.svg?style=shield)](https://circleci.com/gh/ryanhefner/react-contentful)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ryanhefner/react-contentful.svg)](https://greenkeeper.io/)
@@ -18,7 +19,7 @@ Via [npm](https://npmjs.com/package/react-contentful)
 npm install react-contentful
 ```
 
-Via [Yarn](http://yarn.fyi/react-contentful)
+Via [Yarn](https://yarn.pm/react-contentful)
 
 ```sh
 yarn add react-contentful
@@ -125,7 +126,7 @@ during your session to keep things optimized and fast.
 | ---------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client`         | `null`  | Required for children that utilize `withContentful` to make requests to Contentful.                                                                                    |
 | `locale`         | `en-US` | Default `locale` to use for requests against the Contentful API.                                                                                                       |
-| `renderPromises` | `null`  | Not used during normal use, but utilized by other libraries like [`next-content`](https://github.com/ryanhefner/next-contentful) for use during server-side rendering. |
+| `renderPromises` | `null`  | Not used during normal use, but utilized by other libraries like [`next-contentful`](https://github.com/ryanhefner/next-contentful) for use during server-side rendering. |
 
 
 #### `ContentfulClient`
@@ -137,6 +138,7 @@ Instance of Contentful client that is for making requests and caching responses.
 | ------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `space`       | `null`                  | ID of the Contentful space that queries will be submitted to.                                                                    |
 | `accessToken` | `null`                  | Access token used for client initialization.                                                                                     |
+| `environment` | `master`                | Contentful environment to make requests to.                                                                                      |                                                                          |
 | `host`        | `cdn.contentful.com`    | Host to use for requests. Accepts either, `cdn.contentful.com` or `preview.contentful.com`.                                      |
 | `cache`       | `new ContentfulCache()` | Cache used for caching responses during a session, as well as rehydrating the client/app when used during server-side rendering. |
 | `ssrMode`     | `false`                 | Flag to specify when client is being used during server-side rendering.                                                          |
@@ -205,7 +207,7 @@ export default withContentful(YourComponent);
 ## Using Next.js?
 
 If you like what you see above, you might like [next-contentful](https://github.com/ryanhefner/next-contentful),
-which lets you easily add `react-contentful` to your Next.js app. Making it easy
+which lets you easily add `react-contentful` to your Next.js app, making it easy
 to ensure that all your `Query` instances render awesomely server-side.
 
 
