@@ -204,6 +204,20 @@ on a React/Node/Express app.
 | `cache`   | `null`  | Initializes a new `Map` instance to use for cache. |
 
 
+#### `useContentful`
+
+Based on the previous `Query` component, `useContentful` accepts the following options to generate your Contentful queries.
+
+| Props         | Default                                     | Description |
+| ------------- | ------------------------------------------- | ----------- |
+| `contentType` | `null`                                      | Content type associated with the content model that you are querying for within Contentful. Required for non-`id` queries. Results in an array of results returned. |
+| `id`          | `null`                                      | Entry id associated with the content model in Contentful. Returns a single data model from Contentful if it exists. |
+| `include`     | `10`                                        | Depth of referenced content to include in the query. Defaults to `10`. |
+| `query`       | `null`                                      | Query object used for defining the search parameters to use for the request. You can reference all available options via [Contentful official documentation](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters) |
+| `parser`      | `(data, props) => data`                     | Parser to use for manipulating the response data before being pass to the children/returned via callbacks. |
+| `skip`        | `false`                                     | Flag used to skip the `Query` instance when being referenced during server-side rendering. |
+
+
 #### `Query`
 
 This is where the magic happens. You can compose `Query` wherever you need to
