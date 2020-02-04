@@ -150,13 +150,13 @@ export default Page;
 ```
 
 
-### Components
+## Components Reference
 
 Below are the following components and classes that are availabe in this package
 that makes it easy to integrate Contentful into your site or application.
 
 
-#### `ContentfulProvider`
+### `ContentfulProvider`
 
 Provider that offers accesss to a centralized `ContentfulClient` that not only
 can make all your Contentful requests, but also handles caching those requests
@@ -170,7 +170,7 @@ during your session to keep things optimized and fast.
 | `renderPromises` | `null`  | Not used during normal use, but utilized by other libraries like [`next-contentful`](https://github.com/ryanhefner/next-contentful) for use during server-side rendering. |
 
 
-#### `ContentfulClient`
+### `ContentfulClient`
 
 Instance of Contentful client that is for making requests and caching responses.
 
@@ -188,7 +188,7 @@ Instance of Contentful client that is for making requests and caching responses.
 > The `ContentfulClient` is an extension of the Contentful Delivery API SDK. For more information about what options are available when creating a client, along with other useful insights, check out the [Official Contentful documentation](https://contentful.github.io/contentful.js/contentful/7.8.2/contentful.html#.createClient).
 
 
-#### `ContentfulCache`
+### `ContentfulCache`
 
 Cache instance used for caching responses in memory during a session, along with
 building up a cache of responses for responses used to render/rehydrate the app
@@ -204,7 +204,7 @@ on a React/Node/Express app.
 | `cache`   | `null`  | Initializes a new `Map` instance to use for cache. |
 
 
-#### `useContentful`
+### `useContentful`
 
 Based on the previous `Query` component, `useContentful` accepts the following options to generate your Contentful queries.
 
@@ -218,7 +218,7 @@ Based on the previous `Query` component, `useContentful` accepts the following o
 | `skip`        | `false`                                     | Flag used to skip the `Query` instance when being referenced during server-side rendering. |
 
 
-#### `Query`
+### `Query`
 
 This is where the magic happens. You can compose `Query` wherever you need to
 reference or conditionally render content based on Contentful data. `Query`s can
@@ -238,7 +238,7 @@ be used standalone, or to wrap content that is reliant on the data.
 | `onRequest`   | `({ data, error, fetched, loading }) => {}` | Callback for when the request has been initiated. `loading` will be set to `true` and all other values will be `null` or `false`. |
 
 
-#### `withContentful`
+### `withContentful`
 
 Higher-order component that is available in case you want to build your own Contentful
 ready components. Used by the `Query` component for providing access to the `ContentfulContext`.
