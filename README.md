@@ -41,7 +41,7 @@ Javascript SDK.
 ```js
 import React from 'react';
 import { ContentfulClient, ContentfulProvider } from 'react-contentful';
-import Page from './Page';  // @see Page component defined in `Query` example below
+import Page from './Page';  // @see Page component defined in `useContentful` or `Query` examples below
 
 const contentfulClient = new ContentfulClient({
   accessToken: '[Your Contentful Content Delivery API - access token]',
@@ -62,6 +62,47 @@ export default App;
 ```
 
 
+### `useCotnentful` - React Hook
+
+In this example, we are using the `useContentful` hook that accepts query params
+that can be used to directly query Contentul and supply the results in the `data`
+object returned.
+
+```js
+import React from 'react';
+import { useContentful } from 'react-contentful';
+
+const Page = props => {
+  const { data, error, fetched, loading } = useContentful({
+    contentType: 'Page',
+    query: {
+      'fields.slug[in]': `/${props.match.slug || ''}`,
+    }
+  });
+
+  if (loading || !fetched) {
+    return null;
+  }
+
+  if (error) {
+    console.error(error);
+    return null;
+  }
+
+  if (!data) {
+    return <p>Page does not exist.</p>;
+  }
+
+  // See the Contentful query response
+  console.debug(data);
+
+  // Process and pass in the loaded `data` necessary for your page or child components.
+  return (
+    ...
+  );
+}
+```
+
 ### `Query`
 
 In this example, the `Query` component accepts a `query` parameter that
@@ -73,7 +114,7 @@ published `Page` content models.
 import React from 'react';
 import { Query } from 'react-contentful';
 
-const Page = (props) => (
+const Page = props => (
   <Query
     contentType="Page"
     query={{
@@ -193,7 +234,7 @@ ready components. Used by the `Query` component for providing access to the `Con
 import { withContentful } from 'react-contentful';
 
 const YourComponent = ({ contentful }) => {
-  const { client, locale, renderPromises,  } = contentful;
+  const { client, locale, renderPromises } = contentful;
 
   return (
     ...

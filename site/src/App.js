@@ -3,6 +3,7 @@ import { ContentfulClient, ContentfulProvider } from 'react-contentful';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import HookPage from './pages/HookPage';
 import Page from './pages/Page';
 import DocsPage from './pages/DocsPage';
 import './App.css';
@@ -22,6 +23,7 @@ class App extends Component {
             <div className="App-pageWrapper">
               <Switch>
                 <Route path="/docs/:slug*" component={DocsPage} />
+                <Route path="/hook" component={HookPage} />
                 <Route path="/:slug*" component={Page} />
               </Switch>
             </div>

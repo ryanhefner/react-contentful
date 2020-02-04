@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import warning from 'warning';
 import withContentful from './withContentful';
+import { checkCache, fetchData, validateRequestRequirements } from './helpers';
 
 class Query extends Component {
   constructor(props) {
     super(props);
 
-    const data = this.checkCache(props);
+    const data = checkCache(props);
 
     this.state = {
       fetched: data ? true : false,
@@ -37,155 +37,98 @@ class Query extends Component {
     }
   }
 
-  async validateRequestRequirements() {
-    return new Promise((resolve, reject) => {
-      const {
-        id,
-        contentType,
-        contentful,
-        include,
-        locale,
-        parser,
-        query,
-      } = this.props;
+  // async validateRequestRequirements() {
+  //   return new Promise((resolve, reject) => {
+  //     const {
+  //       id,
+  //       contentType,
+  //       contentful,
+  //       include,
+  //       locale,
+  //       parser,
+  //       query,
+  //     } = this.props;
 
-      // Check for contentful context
-      warning(contentful, 'No contentful context passed to <Query />');
+  //     // Check for contentful context
+  //     warning(contentful, 'No contentful context passed to <Query />');
 
-      if (!contentful) {
-        return reject('No contentful context passed to <Query />');
-      }
+  //     if (!contentful) {
+  //       return reject('No contentful context passed to <Query />');
+  //     }
 
-      const {
-        client,
-        locale: contextLocale,
-      } = contentful;
+  //     const {
+  //       client,
+  //       locale: contextLocale,
+  //     } = contentful;
 
-      // Check to make sure a client is available
-      warning(client, 'ContentfulClient not available via context on <Query />');
+  //     // Check to make sure a client is available
+  //     warning(client, 'ContentfulClient not available via context on <Query />');
 
-      if (!client) {
-        return reject('ContentfulClient not available via context on <Query />');
-      }
+  //     if (!client) {
+  //       return reject('ContentfulClient not available via context on <Query />');
+  //     }
 
-      const hasQuery = !!(id || contentType || query === {});
+  //     const hasQuery = !!(id || contentType || query === {});
 
-      // Check to make sure queryable props have been set
-      warning(hasQuery, 'Query props not set on <Query />');
+  //     // Check to make sure queryable props have been set
+  //     warning(hasQuery, 'Query props not set on <Query />');
 
-      if (!hasQuery) {
-        return reject('Query props not set on <Query />');
-      }
+  //     if (!hasQuery) {
+  //       return reject('Query props not set on <Query />');
+  //     }
 
-      return resolve(true);
-    });
-  }
+  //     return resolve(true);
+  //   });
+  // }
 
-  checkCache(props) {
-    const {
-      contentful,
-      parser,
-    } = props;
+  // async fetchData() {
+  //   // @todo Only do this if renderPromises set? - RH
+  //   if (this.props.skip) {
+  //     return Promise.resolve(null);
+  //   }
 
-    if (!contentful) {
-      return null;
-    }
+  //   return new Promise((resolve, reject) => {
+  //     const {
+  //       contentful,
+  //       contentType,
+  //       id,
+  //       include,
+  //       locale,
+  //       query,
+  //     } = this.props;
 
-    if (!contentful.client) {
-      return null;
-    }
+  //     this.validateRequestRequirements().then(() => {
+  //       const {
+  //         client,
+  //         locale: contextLocale,
+  //         renderPromises,
+  //       } = contentful;
 
-    const cacheKey = this.generateCacheKey(props);
-    const cache = contentful.client.checkCache(cacheKey);
+  //       const requestLocale = locale || contextLocale;
 
-    return cache
-      ? parser(cache, props)
-      : null;
-  }
+  //       const request = id
+  //         ? client.getEntry(id, {
+  //             locale: requestLocale,
+  //             include,
+  //             ...query
+  //           })
+  //         : client.getEntries({
+  //             'content_type': contentType,
+  //             locale: requestLocale,
+  //             include,
+  //             ...query
+  //           });
 
-  generateCacheKey(props) {
-    const {
-      contentful,
-      contentType,
-      id,
-      include,
-      locale,
-      query,
-    } = props;
+  //       if (renderPromises) {
+  //         renderPromises.registerSSRObservable(this, request);
+  //       }
 
-    if (!contentful) {
-      return null;
-    }
-
-    const {
-      locale: contextLocale,
-    } = contentful;
-
-    const requestLocale = locale || contextLocale;
-
-    if (id) {
-      return JSON.stringify({id, options: {
-        locale: requestLocale,
-        include,
-        ...query
-      }});
-    }
-
-    return JSON.stringify({
-      content_type: contentType,
-      locale: requestLocale,
-      include,
-      ...query
-    });
-  }
-
-  async fetchData() {
-    if (this.props.skip) {
-      return Promise.resolve(null);
-    }
-
-    return new Promise((resolve, reject) => {
-      const {
-        contentful,
-        contentType,
-        id,
-        include,
-        locale,
-        query,
-      } = this.props;
-
-      this.validateRequestRequirements().then(() => {
-        const {
-          client,
-          locale: contextLocale,
-          renderPromises,
-        } = contentful;
-
-        const requestLocale = locale || contextLocale;
-
-        const request = id
-          ? client.getEntry(id, {
-              locale: requestLocale,
-              include,
-              ...query
-            })
-          : client.getEntries({
-              'content_type': contentType,
-              locale: requestLocale,
-              include,
-              ...query
-            });
-
-        if (renderPromises) {
-          renderPromises.registerSSRObservable(this, request);
-        }
-
-        return request;
-      })
-      .then(resolve)
-      .catch(reject);
-    });
-  }
+  //       return request;
+  //     })
+  //     .then(resolve)
+  //     .catch(reject);
+  //   });
+  // }
 
   requestContentfulData() {
     const {
@@ -195,33 +138,35 @@ class Query extends Component {
       onError,
     } = this.props;
 
-    this.validateRequestRequirements().then(() => {
-      this.setState({
-        error: null,
-        loading: true,
-      }, async () => {
-        onRequest(this.state);
+    validateRequestRequirements(this.props)
+      .then(() => {
+        this.setState({
+          error: null,
+          loading: true,
+        }, async () => {
+          onRequest(this.state);
 
-        this.fetchData().then(response => {
-          this.setState({
-            data: parser(response, this.props),
-            fetched: true,
-            loading: false,
-          }, () => {
-            onLoad(this.state);
-          });
+          fetchData(this.props)
+            .then(response => {
+              this.setState({
+                data: parser(response, this.props),
+                fetched: true,
+                loading: false,
+              }, () => {
+                onLoad(this.state);
+              });
+            });
+        });
+      })
+      .catch(error => {
+        this.setState({
+          error,
+          fetched: true,
+          loading: false,
+        }, () => {
+          onError(this.state);
         });
       });
-    })
-    .catch(error => {
-      this.setState({
-        error,
-        fetched: true,
-        loading: false,
-      }, () => {
-        onError(this.state);
-      });
-    });
   }
 
   getQueryResult() {

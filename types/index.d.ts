@@ -153,6 +153,29 @@ export class RenderPromises {
 }
 
 /**
+ * useContentful
+ */
+
+export interface HookQueryProps {
+  contentType?: string;
+  id?: string;
+  include?: number;
+  locale?: string;
+  parser?: ParserHandler;
+  query?: object;
+  skip?: boolean;
+}
+
+export interface HookResponse {
+  data?: object;
+  error?: object;
+  fetched: boolean;
+  loading: boolean;
+}
+
+export function useContentful(props: HookQueryProps): HookResponse;
+
+/**
  * withContentful
  */
 

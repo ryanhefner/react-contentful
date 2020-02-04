@@ -6,8 +6,10 @@
   "keywords": [
     "react",
     "contentful",
-    "react-components",
     "contentful-api",
+    "react-components",
+    "react-hoc",
+    "react-hook",
     "api"
   ],
   "author": "Ryan Hefner <hi@ryanhefner.com> (https://www.ryanhefner.com)",
@@ -27,7 +29,9 @@
     "ContentfulContext.js",
     "ContentfulProvider.js",
     "index.js",
+    "helpers.js",
     "Query.js",
+    "useContentful.js",
     "withContentful.js"
   ],
   "directories": {
@@ -38,7 +42,7 @@
   "jsnext:main": "src/index.js",
   "types": "types",
   "scripts": {
-    "clean": "rm -f index.js && rm -f ContentfulCache.js && rm -f ContentfulClient.js && rm -f ContentfulContext.js && rm -f ContentfulProvider.js && rm -f Query.js && rm -f withContentful.js && rm -rf parsers && rm -rf es && rm -rf umd",
+    "clean": "rm -f index.js && rm -f helpers.js && rm -f ContentfulCache.js && rm -f ContentfulClient.js && rm -f ContentfulContext.js && rm -f ContentfulProvider.js && rm -f Query.js && rm -f useContentful.js && rm -f withContentful.js && rm -rf parsers && rm -rf es && rm -rf umd",
     "prebuild": "npm run clean",
     "build": "node ./tools/build.js",
     "watch": "babel ./src -d . --ignore __mocks__,__tests__,**/*.test.js --watch",
@@ -46,7 +50,7 @@
     "prepublishOnly": "node ./tools/build.js",
     "push-release": "git push origin master && git push --tags",
     "dtslint": "dtslint types",
-    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/Query.js src/withContentful.js"
+    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/helpers.js src/Query.js src/useContentful.js src/withContentful.js"
   },
   "peerDependencies": {
     "react": ">=16.3",
