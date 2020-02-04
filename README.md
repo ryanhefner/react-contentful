@@ -62,7 +62,7 @@ export default App;
 ```
 
 
-### `useCotnentful` - React Hook
+### `useContentful` - React Hook
 
 In this example, we are using the `useContentful` hook that accepts query params
 that can be used to directly query Contentul and supply the results in the `data`
