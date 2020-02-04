@@ -5,17 +5,17 @@
     "main.js.map": "/react-contentful/static/js/main.dc8f38c4.chunk.js.map",
     "runtime-main.js": "/react-contentful/static/js/runtime-main.812ec65d.js",
     "runtime-main.js.map": "/react-contentful/static/js/runtime-main.812ec65d.js.map",
-    "static/js/2.ced9e441.chunk.js": "/react-contentful/static/js/2.ced9e441.chunk.js",
-    "static/js/2.ced9e441.chunk.js.map": "/react-contentful/static/js/2.ced9e441.chunk.js.map",
+    "static/js/2.67612915.chunk.js": "/react-contentful/static/js/2.67612915.chunk.js",
+    "static/js/2.67612915.chunk.js.map": "/react-contentful/static/js/2.67612915.chunk.js.map",
     "index.html": "/react-contentful/index.html",
-    "precache-manifest.8c9c9337d8479e92540083b78446bc49.js": "/react-contentful/precache-manifest.8c9c9337d8479e92540083b78446bc49.js",
+    "precache-manifest.d67b827bcede62b7ef74d7a756fb3ccd.js": "/react-contentful/precache-manifest.d67b827bcede62b7ef74d7a756fb3ccd.js",
     "service-worker.js": "/react-contentful/service-worker.js",
     "static/css/main.5f8d70fd.chunk.css.map": "/react-contentful/static/css/main.5f8d70fd.chunk.css.map",
-    "static/js/2.ced9e441.chunk.js.LICENSE": "/react-contentful/static/js/2.ced9e441.chunk.js.LICENSE"
+    "static/js/2.67612915.chunk.js.LICENSE.txt": "/react-contentful/static/js/2.67612915.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.812ec65d.js",
-    "static/js/2.ced9e441.chunk.js",
+    "static/js/2.67612915.chunk.js",
     "static/css/main.5f8d70fd.chunk.css",
     "static/js/main.dc8f38c4.chunk.js"
   ]
