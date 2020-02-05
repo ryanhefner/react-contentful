@@ -1,5 +1,5 @@
 import ContentfulCache from './ContentfulCache';
-const contentful = require('contentful/dist/contentful.browser.min.js');
+const contentful = require('contentful');
 import invariant from 'invariant';
 
 export default (clientOptions) => {
