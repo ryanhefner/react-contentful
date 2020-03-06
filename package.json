@@ -65,7 +65,7 @@
     "flatted": "^2.0.1",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
-    "lomit": "^0.1.1",
+    "lomit": "^0.2.0",
     "prop-types": "^15.7.2",
     "react-hoc-helpers": "^0.1.4",
     "react-is": "^16.13.0",
