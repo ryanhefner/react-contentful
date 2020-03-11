@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/dt/react-contentful?style=flat-square)](https://www.npmjs.com/package/react-contentful)
 [![Coverage Status](https://coveralls.io/repos/github/ryanhefner/react-contentful/badge.svg?branch=master)](https://coveralls.io/github/ryanhefner/react-contentful?branch=master)
 [![CircleCI](https://circleci.com/gh/ryanhefner/react-contentful.svg?style=shield)](https://circleci.com/gh/ryanhefner/react-contentful)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ryanhefner/react-contentful.svg)](https://greenkeeper.io/)
+
 
 A React component library that makes it super simple to compose Contentful
 content into your sites and applications.
