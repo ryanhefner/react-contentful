@@ -3,8 +3,9 @@
 [![npm](https://img.shields.io/npm/v/react-contentful?style=flat-square)](https://github.com/ryanhefner/react-contentful)
 [![NPM](https://img.shields.io/npm/l/react-contentful?style=flat-square)](LICENSE)
 [![npm](https://img.shields.io/npm/dt/react-contentful?style=flat-square)](https://www.npmjs.com/package/react-contentful)
-[![Coverage Status](https://coveralls.io/repos/github/ryanhefner/react-contentful/badge.svg?branch=master)](https://coveralls.io/github/ryanhefner/react-contentful?branch=master)
-[![CircleCI](https://circleci.com/gh/ryanhefner/react-contentful.svg?style=shield)](https://circleci.com/gh/ryanhefner/react-contentful)
+![Coveralls github](https://img.shields.io/coveralls/github/ryanhefner/react-contentful?style=flat-square)
+![CircleCI](https://img.shields.io/circleci/build/github/ryanhefner/react-contentful?style=flat-square)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/ryanhefner/react-contentful?style=flat-square)
 
 
 A React component library that makes it super simple to compose Contentful
