@@ -67,7 +67,7 @@
     "invariant": "^2.2.4",
     "lomit": "^0.1.1",
     "prop-types": "^15.7.2",
-    "react-hoc-helpers": "^0.1.4",
+    "react-hoc-helpers": "^0.1.5",
     "react-is": "^16.13.0",
     "warning": "^4.0.3"
   },
