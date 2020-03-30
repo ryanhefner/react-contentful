@@ -4,12 +4,12 @@
   "private": true,
   "homepage": "https://ryanhefner.github.io/react-contentful",
   "dependencies": {
-    "react": "^16.13.0",
-    "react-contentful": "^2.0.4",
-    "react-dom": "^16.13.0",
+    "react": "^16.13.1",
+    "react-contentful": "^2.0.6",
+    "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0",
+    "react-scripts": "^3.4.1",
     "redux": "^4.0.5"
   },
   "scripts": {
