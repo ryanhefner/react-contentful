@@ -2,11 +2,16 @@ import { useContext, useEffect, useState } from 'react';
 import ContentfulContext from './ContentfulContext';
 import { checkCache, fetchData } from './helpers';
 
+const defaultProps = {
+  include: 10,
+  query: {},
+  parser: (data, props) => data,
+};
+
 const useContentful = props => {
   const contentful = useContext(ContentfulContext);
-  const { parser } = props;
-
-  const internalProps = { ...props, contentful };
+  const internalProps = { ...defaultProps, ...props, contentful };
+  const { parser } = internalProps;
 
   const [mounted, setMounted] = useState(false);
   const [error, setError] = useState(null);
@@ -19,7 +24,7 @@ const useContentful = props => {
 
     fetchData(internalProps)
       .then(response => {
-        setData(parser ? parser(response) : response);
+        setData(parser ? parser(response, internalProps) : response);
         setLoading(false);
         setFetched(true);
       })
