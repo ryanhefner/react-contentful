@@ -13,7 +13,6 @@ const useContentful = props => {
   const internalProps = { ...defaultProps, ...props, contentful };
   const { parser } = internalProps;
 
-  const [mounted, setMounted] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(checkCache(internalProps));
@@ -34,14 +33,12 @@ const useContentful = props => {
   };
 
   useEffect(() => {
-    if (!mounted && !fetched) {
-      setMounted(true);
-      requestContentfulData();
-    } else if (mounted && fetched) {
+    if (fetched) {
       setFetched(false);
-      requestContentfulData();
     }
-  }, [mounted, internalProps]);
+
+    requestContentfulData();
+  }, [JSON.stringify(props)]);
 
   const finish = () => ({ data, error, fetched, loading });
 
