@@ -1,9 +1,9 @@
 import ContentfulCache from './ContentfulCache';
-const { createClient } = require('contentful');
 import invariant from 'invariant';
-import omit from 'lomit';
+const { createClient } = require('contentful');
+const { createClient: createClientBrowser } = require('contentful/dist/contentful.browser.min.js');
 
-export default (clientOptions) => {
+const contentfulClient = createClient => clientOptions => {
   invariant(
     clientOptions.accessToken,
     'ContentfulClient not created because `accessToken` was not provided.'
@@ -14,8 +14,8 @@ export default (clientOptions) => {
     'ContentfulClient not created because `space` was not provided.'
   );
 
-  const client = (clientOptions.createClient || createClient)({
-    ...omit(clientOptions, ['createClient']),
+  const client = createClient({
+    ...clientOptions,
   });
 
   const cache = clientOptions.cache || new ContentfulCache();
@@ -77,3 +77,6 @@ export default (clientOptions) => {
     },
   };
 };
+
+export const ContentfulClient = contentfulClient(createClient);
+export const ContentfulClientBrowser = contentfulClient(createClientBrowser);
