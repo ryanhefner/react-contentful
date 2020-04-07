@@ -1,6 +1,7 @@
 import ContentfulCache from './ContentfulCache';
-const contentful = require('contentful');
+const { createClient } = require('contentful');
 import invariant from 'invariant';
+import omit from 'lomit';
 
 export default (clientOptions) => {
   invariant(
@@ -13,8 +14,8 @@ export default (clientOptions) => {
     'ContentfulClient not created because `space` was not provided.'
   );
 
-  const client = contentful.createClient({
-    ...clientOptions,
+  const client = (clientOptions.createClient || createClient)({
+    ...omit(clientOptions, ['createClient']),
   });
 
   const cache = clientOptions.cache || new ContentfulCache();
