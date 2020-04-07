@@ -1,4 +1,5 @@
 import ContentfulClient from './ContentfulClient';
+const { createClient } = require('contentful/dist/contentful.browser.min.js');
 
 describe('<ContentfulClient />', () => {
   test('returns client', () => {
@@ -38,5 +39,15 @@ describe('<ContentfulClient />', () => {
     };
 
     expect(t).toThrow(TypeError);
+  });
+
+  test('create client w/ `createClient` override', () => {
+    const client = new ContentfulClient({
+      accessToken: '23b20723ef0ffdc1f0e123e8fb76cffeacac8ec8b9199ed3e384cc37cf2256b7',
+      space: 'nh6zyt31q7gz',
+      createClient
+    });
+
+    expect(client).toBeTruthy();
   });
 });
