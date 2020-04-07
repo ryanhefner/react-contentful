@@ -1,17 +1,8 @@
-import { ContentfulClient, ContentfulClientBrowser } from './ContentfulClient';
+import ContentfulClient from './ContentfulClient';
 
 describe('<ContentfulClient />', () => {
   test('returns client', () => {
     const client = new ContentfulClient({
-      accessToken: '23b20723ef0ffdc1f0e123e8fb76cffeacac8ec8b9199ed3e384cc37cf2256b7',
-      space: 'nh6zyt31q7gz',
-    });
-
-    expect(client).toBeTruthy();
-  });
-
-  test('return client (Browser)', () => {
-    const client = new ContentfulClientBrowser({
       accessToken: '23b20723ef0ffdc1f0e123e8fb76cffeacac8ec8b9199ed3e384cc37cf2256b7',
       space: 'nh6zyt31q7gz',
     });
