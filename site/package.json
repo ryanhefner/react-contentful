@@ -10,14 +10,17 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "snyk": "^1.316.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:docs": "react-scripts build && rm -rf ../docs && mv build ../docs",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +33,6 @@
   ],
   "localDependencies": {
     "react-contentful": ".."
-  }
+  },
+  "snyk": true
 }
