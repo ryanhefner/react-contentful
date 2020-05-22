@@ -17,11 +17,6 @@ jobs:
 
     steps:
       - checkout
-      - snyk/scan
-        fail-on-issues: false
-        monitor-on-build: true
-        severity-threshold: high
-        token-variable: SNYK_TOKEN
 
       # Download and cache dependencies
       - restore_cache:
