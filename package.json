@@ -50,7 +50,7 @@
     "prepublishOnly": "node ./tools/build.js",
     "push-release": "git push origin master && git push --tags",
     "dtslint": "dtslint types",
-    "test": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/helpers.js src/Query.js src/useContentful.js src/withContentful.js"
+    "test": "snyk test && jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/helpers.js src/Query.js src/useContentful.js src/withContentful.js"
   },
   "peerDependencies": {
     "react": ">=16.3",
@@ -80,17 +80,17 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^25.5.1",
+    "babel-jest": "^26.0.1",
     "babel-plugin-dev-expression": "^0.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-polyfill": "^6.26.0",
     "coveralls": "^3.1.0",
-    "dtslint": "^3.6.2",
+    "dtslint": "^3.6.4",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "greenkeeper-lockfile": "^1.15.1",
     "gzip-size": "^5.1.1",
-    "jest": "^25.5.4",
+    "jest": "^26.0.1",
     "jest-enzyme": "^7.1.2",
     "jsdom": "^16.2.2",
     "pretty-bytes": "^5.3.0",
@@ -98,13 +98,14 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "regenerator-runtime": "^0.13.5",
-    "rollup": "^2.10.2",
+    "rollup": "^2.10.5",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
-    "typescript": "^3.9.2"
+    "snyk": "^1.323.2",
+    "typescript": "^3.9.3"
   },
   "jest": {
     "collectCoverage": true,
