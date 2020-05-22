@@ -5,7 +5,7 @@
   "homepage": "https://ryanhefner.github.io/react-contentful",
   "dependencies": {
     "react": "^16.13.1",
-    "react-contentful": "^2.0.6",
+    "react-contentful": "^2.0.8",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
