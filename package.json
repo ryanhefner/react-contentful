@@ -98,13 +98,13 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "regenerator-runtime": "^0.13.5",
-    "rollup": "^2.10.5",
+    "rollup": "^2.10.7",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
-    "snyk": "^1.323.2",
+    "snyk": "^1.324.0",
     "typescript": "^3.9.3"
   },
   "jest": {
