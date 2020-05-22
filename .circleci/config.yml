@@ -17,6 +17,11 @@ jobs:
 
     steps:
       - checkout
+      - snyk/scan
+        fail-on-issues: false
+        monitor-on-build: true
+        severity-threshold: high
+        token-variable: SNYK_TOKEN
 
       # Download and cache dependencies
       - restore_cache:
@@ -36,7 +41,7 @@ jobs:
       - run: npm run build
 
       # run tests!
-      - run: npm run test
+      - run: npm run test:ci
 
       # send code coverage info to coveralls
       - run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

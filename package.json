@@ -50,7 +50,8 @@
     "prepublishOnly": "node ./tools/build.js",
     "push-release": "git push origin master && git push --tags",
     "dtslint": "dtslint types",
-    "test": "snyk test && jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/helpers.js src/Query.js src/useContentful.js src/withContentful.js"
+    "test": "snyk test && jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/helpers.js src/Query.js src/useContentful.js src/withContentful.js",
+    "test:ci": "jest --findRelatedTests src/ContentfulClient.js src/ContentfulProvider.js src/helpers.js src/Query.js src/useContentful.js src/withContentful.js"
   },
   "peerDependencies": {
     "react": ">=16.3",
