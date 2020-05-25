@@ -1,10 +1,10 @@
 # 📰 react-contentful
 
-[![npm](https://img.shields.io/npm/v/react-contentful?style=flat-square)](https://github.com/ryanhefner/react-contentful)
+[![npm](https://img.shields.io/npm/v/react-contentful?style=flat-square)](https://www.pkgstats.com/pkg:react-contentful)
 [![NPM](https://img.shields.io/npm/l/react-contentful?style=flat-square)](LICENSE)
-[![npm](https://img.shields.io/npm/dt/react-contentful?style=flat-square)](https://www.npmjs.com/package/react-contentful)
-![Coveralls github](https://img.shields.io/coveralls/github/ryanhefner/react-contentful?style=flat-square)
-![CircleCI](https://img.shields.io/circleci/build/github/ryanhefner/react-contentful?style=flat-square)
+[![npm](https://img.shields.io/npm/dt/react-contentful?style=flat-square)](https://www.pkgstats.com/pkg:react-contentful)
+[![Coveralls github](https://img.shields.io/coveralls/github/ryanhefner/react-contentful?style=flat-square)](https://coveralls.io/github/ryanhefner/react-contentful)
+[![CircleCI](https://img.shields.io/circleci/build/github/ryanhefner/react-contentful?style=flat-square)](https://circleci.com/gh/ryanhefner/react-contentful)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/ryanhefner/react-contentful?style=flat-square)
 
 
