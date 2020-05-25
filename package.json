@@ -18,6 +18,10 @@
     "url": "https://github.com/ryanhefner/react-contentful/issues"
   },
   "homepage": "https://github.com/ryanhefner/react-contentful#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/ryanhefner"
+  },
   "files": [
     "es",
     "parsers",
