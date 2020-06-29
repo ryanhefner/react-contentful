@@ -4,6 +4,8 @@ object-assign
 @license MIT
 */
 
+/*! (c) 2020 Andrea Giammarchi */
+
 /** @license React v0.19.1
  * scheduler.production.min.js
  *
