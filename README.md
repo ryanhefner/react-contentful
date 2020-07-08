@@ -104,6 +104,7 @@ const Page = props => {
 }
 ```
 
+
 ### `Query`
 
 In this example, the `Query` component accepts a `query` parameter that
@@ -149,6 +150,13 @@ const Page = props => (
 
 export default Page;
 ```
+
+
+## Using Next.js?
+
+If you like what you see above, you might like [next-contentful](https://github.com/ryanhefner/next-contentful),
+which lets you easily add `react-contentful` to your Next.js app, making it easy
+to ensure that all your `Query` instances render awesomely server-side.
 
 
 ## Components Reference
@@ -258,13 +266,6 @@ const YourComponent = ({ contentful }) => {
 
 export default withContentful(YourComponent);
 ````
-
-
-## Using Next.js?
-
-If you like what you see above, you might like [next-contentful](https://github.com/ryanhefner/next-contentful),
-which lets you easily add `react-contentful` to your Next.js app, making it easy
-to ensure that all your `Query` instances render awesomely server-side.
 
 
 ## License
