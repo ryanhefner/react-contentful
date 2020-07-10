@@ -63,15 +63,15 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.4",
-    "@types/react": "^16.9.38",
+    "@types/react": "^16.9.42",
     "contentful": "^7.14.5",
-    "contentful-parsers": "^0.2.14",
+    "contentful-parsers": "^0.2.15",
     "flatted": "^3.0.4",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
     "lomit": "^0.2.0",
     "prop-types": "^15.7.2",
-    "react-hoc-helpers": "^0.1.8",
+    "react-hoc-helpers": "^0.1.9",
     "react-is": "^16.13.1",
     "warning": "^4.0.3"
   },
@@ -96,7 +96,7 @@
     "gzip-size": "^5.1.1",
     "jest": "^26.1.0",
     "jest-enzyme": "^7.1.2",
-    "jsdom": "^16.2.2",
+    "jsdom": "^16.3.0",
     "pretty-bytes": "^5.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -108,7 +108,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^6.1.0",
-    "snyk": "^1.360.0",
+    "snyk": "^1.361.3",
     "typescript": "^3.9.6"
   },
   "jest": {
