@@ -102,14 +102,14 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "regenerator-runtime": "^0.13.7",
-    "rollup": "^2.21.0",
+    "rollup": "^2.23.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^6.1.0",
-    "snyk": "^1.362.1",
-    "typescript": "^3.9.6"
+    "snyk": "^1.369.0",
+    "typescript": "^3.9.7"
   },
   "jest": {
     "collectCoverage": true,
