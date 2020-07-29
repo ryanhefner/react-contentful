@@ -42,7 +42,7 @@ jobs:
       - run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
       # send code coverage info to codecov
-      - run: bash <(curl -s https://codecov.io/bash) -t token
+      - run: bash <(curl -s https://codecov.io/bash)
 
       - run: ./node_modules/.bin/greenkeeper-lockfile-upload
 orbs:
