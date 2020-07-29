@@ -41,6 +41,9 @@ jobs:
       # send code coverage info to coveralls
       - run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
+      # send code coverage info to codecov
+      - run: bash <(curl -s https://codecov.io/bash) -t token
+
       - run: ./node_modules/.bin/greenkeeper-lockfile-upload
 orbs:
   snyk: snyk/snyk@0.0.10
