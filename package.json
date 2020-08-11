@@ -62,16 +62,16 @@
     "react-dom": ">=16.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.1",
+    "@babel/runtime": "^7.11.2",
     "@types/react": "^16.9.45",
     "contentful": "^7.14.6",
-    "contentful-parsers": "^0.2.17",
+    "contentful-parsers": "^0.2.18",
     "flatted": "^3.0.4",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
     "lomit": "^0.2.0",
     "prop-types": "^15.7.2",
-    "react-hoc-helpers": "^0.1.12",
+    "react-hoc-helpers": "^0.1.13",
     "react-is": "^16.13.1",
     "warning": "^4.0.3"
   },
