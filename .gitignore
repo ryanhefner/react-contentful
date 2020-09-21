@@ -1,8 +1,15 @@
-.DS_Store
+# Build dirs
 coverage
 es
-node_modules
 parsers
 umd
+
+# Root level .js files, except Rollup config
 /*.js
 !rollup.config.js
+
+# Modules
+node_modules
+
+# Misc.
+.DS_Store
