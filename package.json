@@ -79,7 +79,7 @@
     "flatted": "^3.0.4",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
-    "lomit": "^0.2.0",
+    "lomit": "^0.3.1",
     "prop-types": "^15.7.2",
     "react-hoc-helpers": "^0.1.16",
     "react-is": "^16.13.1",
