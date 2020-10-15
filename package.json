@@ -73,14 +73,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@types/react": "^16.9.50",
+    "@types/react": "^16.9.51",
     "contentful": "^7.14.7",
-    "contentful-parsers": "^1.2.7",
+    "contentful-parsers": "^1.2.9",
     "flatted": "^3.1.0",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
     "prop-types": "^15.7.2",
-    "react-hoc-helpers": "^0.1.16",
+    "react-hoc-helpers": "^0.1.17",
     "react-is": "^16.13.1",
     "warning": "^4.0.3"
   },
