@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@types/react": "^16.9.52",
+    "@types/react": "^16.9.53",
     "contentful": "^7.14.8",
     "contentful-parsers": "^1.2.15",
     "flatted": "^3.1.0",
