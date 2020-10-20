@@ -74,7 +74,7 @@
   "dependencies": {
     "@babel/runtime": "^7.12.1",
     "@types/react": "^16.9.52",
-    "contentful": "^7.14.7",
+    "contentful": "^7.14.8",
     "contentful-parsers": "^1.2.15",
     "flatted": "^3.1.0",
     "hoist-non-react-statics": "^3.3.2",
