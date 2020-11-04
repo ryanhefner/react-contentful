@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://ryanhefner.github.io/react-contentful",
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "react": "^16.14.0",
     "react-contentful": "^2.0.30",
     "react-dom": "^16.14.0",
