@@ -1,4 +1,4 @@
-const Flatted = require('flatted/cjs');
+import { parse } from 'flatted'
 
 export default class ContentfulCache {
   constructor(cache) {
@@ -29,7 +29,7 @@ export default class ContentfulCache {
     }
 
     if (typeof cache === 'string') {
-      const data = Flatted.parse(cache);
+      const data = parse(cache);
 
       if (Symbol.iterator in Object(data)) {
         this.cache = new Map(data);
